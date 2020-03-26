@@ -2,63 +2,73 @@ var quiz = {
   user: "Ade Febrian",
   questions: [
   {
-    text: "Apakah anda keluar rumah ?",
+    text: "Are you leaving the house?",
     responses: [
-    { text: "IYA", correct: true },
-    { text: "TIDAK" }] },
+    { text: "YES", correct: true },
+    { text: "NO", }] 
+  },
 
   {
-    text: "Apakah anda menggunakan transportasi publik ?",
+ 
+    text: "Do you use public transportation?",
     responses: [
-      { text: "IYA", correct: true },
-      { text: "TIDAK" }] },
+      { text: "YES", correct: true },
+      { text: "TIDAK" }] 
+    },
 
       {
-        text: "Apakah anda menggunakan masker saat keluar rumah ?",
+        text: "Do you wear a mask when you leave the house?",
         responses: [
           { text: "IYA"},
-          { text: "TIDAK", correct: true }] },
+          { text: "TIDAK", correct: true }] 
+        },
 
   {
-    text: "Apakah anda berjabat tangan dengan orang lain ?",
+    text: "Do you shake hands with other people? ",
     responses: [
       { text: "IYA", correct: true },
-      { text: "TIDAK" }] },
+      { text: "TIDAK" }] 
+    },
 
 
   {
-    text: "Apakah setelah menyentuh apapun anda gunakan Hand Sanitizer ?",
+    text: "After touching anything do you use Hand Sanitizer?",
     responses: [
       { text: "IYA" },
-      { text: "TIDAK", correct: true }] },
+      { text: "TIDAK", correct: true }] 
+    },
 
 
   {
-    text: "Apakah anda menyentuh benda yang orang lain sentuh ?",
+    text: "Do you touch objects that other people touch?",
     responses: [
       { text: "IYA", correct: true },
-      { text: "TIDAK" }] },
+      { text: "TIDAK" }] 
+    },
 
 
   {
     text:
-    "Apakah anda menjaga jarak 1 meter dengan orang lain ketika berkegiatan diluar ?",
+    "Do you keep a distance of 1 meter from other people when doing activities outside?",
     responses: [
       { text: "IYA" },
-      { text: "TIDAK", correct: true }] },
+      { text: "TIDAK", correct: true }] 
+    },
 
   {
-    text: "Apakah anda tinggal di wilayah Kota/kabupaten yang terdapat pasien positif Covid-19 ?",
+    text: "Do you live in a city / district area where there are positive patients with Covid-19?",
     responses: [
       { text: "IYA", correct: true },
-      { text: "TIDAK" }] },
+      { text: "TIDAK" }] 
+    },
 
 
   {
     text: "Apakah kediaman anda sudah disterilkan dengan densinfektan ?",
     responses: [
       { text: "IYA" },
-      { text: "TIDAK", correct: true  }] },
+      { text: "TIDAK", correct: true  }] 
+    },
 
 
   {
@@ -66,40 +76,47 @@ var quiz = {
     "Apakah anda menyediakan Hand Sanitizer dirumah ?",
     responses: [
       { text: "IYA" },
-      { text: "TIDAK", correct: true  }] },
+      { text: "TIDAK", correct: true  }] 
+    },
 
   {
       text:
       "Apakah anda mengkonsumsi Vitamin Tambahan untuk meningkatkan daya tahan tubuh ?",
       responses: [
         { text: "IYA" },
-        { text: "TIDAK", correct: true  }] },
+        { text: "TIDAK", correct: true  }]
+      },
 
       {
         text: "Hari ini, sudahkah anda terkena sinar matahari langsung, minimal 15 menit ?",
         responses: [
         { text: "IYA"},
-        { text: "TIDAK", correct: true }] },
+        { text: "TIDAK", correct: true }] 
+      },
     
       {
         text: "Apakah anda memiliki riwayat penyakit jantung, diabetes atau gangguan pernafasan?",
         responses: [
           { text: "IYA", correct: true },
-          { text: "TIDAK" }] },
+          { text: "TIDAK" }] 
+        },
     
 
       {
-        text: "Apakah anda sudah melakukan pengecekan Covid-19 Sebelumnya ?",
+        text: "Have you checked Covid-19 beforehand?",
         responses: [
           { text: "IYA"},
-          { text: "TIDAK", correct: true  }] },
+          { text: "TIDAK", correct: true  }] 
+        },
 
-    
   {
-    text: "Anda berusia 60 tahun keatas??",
+    text: "You are 60 years and over ??",
     responses: [
     { text: "IYA", correct: true },
-    { text: "TIDAK" }] }] },
+    { text: "TIDAK" }] 
+  }
+]
+  },
 
 
 
@@ -124,11 +141,28 @@ var app = new Vue({
       this.questionIndex = 0;
       this.userResponses = Array(this.quiz.questions.length).fill(null);
     },
+
     selectOption: function (index) {
+      // 'if' and 'else if' is for first question only on questionIndex == 0
+      // 'else' is for next all question except first question
+      if( this.questionIndex == 0 && index == 1 ){
+        // it will excape the next 7 questions and will go to questionIndex == 7
+        this.questionIndex = 7;
       Vue.set(this.userResponses, this.questionIndex, index);
+    }
+      else if(this.questionIndex == 0 && index == 0 ){ 
+      Vue.set(this.userResponses, this.questionIndex, index);
+      this.questionIndex++;
+      } 
+      else{
+      Vue.set(this.userResponses, this.questionIndex, index);
+      this.questionIndex++;
+      }
       //console.log(this.userResponses);
     },
+
     next: function () {
+      window.alert(this.questionIndex);
       if (this.questionIndex < this.quiz.questions.length)
       this.questionIndex++;
     },
