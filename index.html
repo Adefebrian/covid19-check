@@ -5,7 +5,8 @@
   <title>TEST COVID-19</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css'><link rel="stylesheet" href="./style.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css'>
+<link rel="stylesheet" href="./style.css">
 <link rel="stylesheet" href="./script.js">
 
 </head>
@@ -25,7 +26,7 @@
 
 				<header>
 					<img src="logo.png" height="85px" width="85px;">
-					<h1 class="title is-6">Tes Resiko Kamu Terkena COVID-19</h1>
+					<h1 class="title is-6">Test Your Risk for COVID-19</h1>
 					<!--progress-->
 					<div class="progressContainer">
 						<progress class="progress is-info is-small" :value="(questionIndex/quiz.questions.length)*100" max="100">{{(questionIndex/quiz.questions.length)*100}}%</progress>
@@ -78,30 +79,30 @@
 
 				<!--resultTitleBlock-->
 				<h1 class="title">
-					Kamu Beresiko {{ (score()>11?' "Tinggi <b></b>" ':(score()< 5?' "Rendah" ':' "Rentan" ')) }} Terkena COVID-19 ! 
+					Kamu Beresiko {{ (score()>11?' "High <b></b>" ':(score()< 5?' "Low" ':' "Susceptible" ')) }} Hit COVID-19 ! 
 				</h1>
 				<p class="subtitle">
-					Hasil: {{ score() }} dari {{ quiz.questions.length }} pertanyaan
+					Results: {{ score() }} from {{ quiz.questions.length }} question
 				</p>
 				<p>
 				</p>
-				<h4>Ingin mempelajari COVID-19 lebih lanjut ? <b></b></h4>
-				Klik tombol dibawah
+				<h4>Want to learn more about COVID-19? <b></b></h4>
+				Click the button below
 				<p></p>
 					<br>
-					<a href="" class="button" style="text-decoration:none">Pencegahan & Penanganan </a>
+					<a href="" class="button" style="text-decoration:none">Prevention & Treatment </a>
 
 					<p></p>
                 <p></p>
                 	<p></p>
                 <br></br>
-                Aplikasi ini dibuat oleh : @AF - <a href="http://www.rtikcirebonkota.id/">rtikCirebonkota.id</a>
+                This application was created by : @AF - <a href="http://www.rtikcirebonkota.id/">rtikCirebonkota.id</a>
 				<!--/resultTitleBlock-->
 
 			</div>
 			<p></p>
                 <br></br>
-                Aplikasi ini dibuat oleh :@AF - <a href="http://www.rtikcirebonkota.id/">rtikCirebonkota.id</a>
+                This application was created by:@AF - <a href="http://www.rtikcirebonkota.id/">rtikCirebonkota.id</a>
 				<!--/resultTitleBlock-->
 			<!--/quizCompetedResult-->
 
